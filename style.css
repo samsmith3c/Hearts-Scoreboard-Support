@@ -1,0 +1,253 @@
+/* Hearts Scoreboard — site theme
+   Matches the app: felt-green card table, white text on translucent
+   black cards, red heart accent. */
+
+:root {
+  --felt-top: #3d6935;
+  --felt-bottom: #1c3a18;
+  --felt: #2d5a27;
+  --card-bg: rgba(0, 0, 0, 0.25);
+  --card-border: rgba(255, 255, 255, 0.12);
+  --heart-red: #cc0000;
+  --heart-red-bright: #ff6b6b;
+  --gold: #ffd93d;
+  --green: #4cd964;
+  --text: #ffffff;
+  --text-dim: rgba(255, 255, 255, 0.72);
+  --text-faint: rgba(255, 255, 255, 0.45);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+  background: linear-gradient(180deg, var(--felt-top) 0%, var(--felt-bottom) 75%) fixed,
+    var(--felt-bottom);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+.wrap {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 4rem;
+}
+
+/* Header */
+
+header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.app-icon {
+  width: 84px;
+  height: 84px;
+  margin: 0 auto 1rem;
+  border-radius: 20px;
+  background: linear-gradient(180deg, var(--felt-top), var(--felt-bottom));
+  border: 1px solid var(--card-border);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-icon svg {
+  width: 46px;
+  height: 46px;
+}
+
+header h1 {
+  font-size: 1.9rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+header .tagline {
+  color: var(--text-dim);
+  margin-top: 0.35rem;
+  font-size: 1.02rem;
+}
+
+/* Nav pills */
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 1.4rem;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.92rem;
+  padding: 0.45rem 1.1rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.13);
+  border: 1px solid transparent;
+  transition: background 0.15s ease;
+}
+
+nav a:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+nav a.active {
+  background: rgba(0, 0, 0, 0.3);
+  border-color: var(--card-border);
+  color: var(--gold);
+}
+
+/* Cards */
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 1.5rem 1.6rem;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+}
+
+.card h2 {
+  font-size: 1.22rem;
+  font-weight: 700;
+  margin-bottom: 0.7rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.card h2 .suit {
+  color: var(--heart-red-bright);
+  font-size: 1.05rem;
+}
+
+.card h3 {
+  font-size: 1.02rem;
+  font-weight: 700;
+  margin: 1.2rem 0 0.35rem;
+  color: var(--gold);
+}
+
+.card h3:first-of-type {
+  margin-top: 0.9rem;
+}
+
+.card p {
+  color: var(--text-dim);
+  margin-bottom: 0.8rem;
+}
+
+.card p:last-child {
+  margin-bottom: 0;
+}
+
+.card ul {
+  color: var(--text-dim);
+  padding-left: 1.3rem;
+  margin-bottom: 0.8rem;
+}
+
+.card li {
+  margin-bottom: 0.4rem;
+}
+
+.card li::marker {
+  color: var(--heart-red-bright);
+}
+
+a {
+  color: var(--gold);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+strong {
+  color: var(--text);
+}
+
+/* Buttons */
+
+.btn {
+  display: inline-block;
+  background: var(--heart-red);
+  color: #fff;
+  font-weight: 700;
+  padding: 0.7rem 1.5rem;
+  border-radius: 999px;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+  transition: filter 0.15s ease, transform 0.15s ease;
+}
+
+.btn:hover {
+  filter: brightness(1.15);
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+.btn.secondary {
+  background: rgba(255, 255, 255, 0.13);
+}
+
+.btn-row {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 0.4rem;
+}
+
+/* Footer */
+
+footer {
+  text-align: center;
+  color: var(--text-faint);
+  font-size: 0.85rem;
+  margin-top: 3rem;
+}
+
+footer .suits {
+  letter-spacing: 0.5em;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+footer .suits .red {
+  color: var(--heart-red-bright);
+}
+
+footer a {
+  color: var(--text-dim);
+}
+
+@media (max-width: 480px) {
+  .wrap {
+    padding-top: 1.8rem;
+  }
+
+  header h1 {
+    font-size: 1.6rem;
+  }
+
+  .card {
+    padding: 1.2rem 1.2rem;
+  }
+}
